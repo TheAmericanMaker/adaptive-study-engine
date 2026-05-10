@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Performance",
+  "description": "Per-topic accuracy, difficulty level, and confidence.",
+  "type": "object",
+  "required": [
+    "topics"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "topics": {
+      "type": "object",
+      "description": "Map keyed by topicId (matches objectives.yaml subsection IDs, e.g. '1.1').",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "title",
+          "domain",
+          "questionsAnswered",
+          "accuracy",
+          "level",
+          "confidence",
+          "lastStudied"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "questionsAnswered": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "correctAnswers": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "accuracy": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3,
+            "description": "Current difficulty: 1=intro, 2=standard, 3=trick variant."
+          },
+          "confidence": {
+            "enum": [
+              "unknown",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "lastStudied": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "streak": {
+            "type": "integer",
+            "description": "Consecutive correct (positive) or wrong (negative)."
+          }
+        }
+      }
+    }
+  }
+}

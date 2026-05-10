@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VelocityTracker",
+  "description": "Tracks study sessions, accuracy trend, and exam-readiness projections.",
+  "type": "object",
+  "required": [
+    "examDate",
+    "sessions",
+    "sessionHistory",
+    "accuracyTrend",
+    "projections"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "examDate": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date of the scheduled exam."
+    },
+    "sessions": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total session count."
+    },
+    "sessionHistory": {
+      "type": "array",
+      "description": "Per-session log. Append-only.",
+      "items": {
+        "type": "object",
+        "required": [
+          "date",
+          "domain",
+          "score",
+          "questions",
+          "timeSpentMin"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "domain": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$|^mixed$"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "questions": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "timeSpentMin": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "topicIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "accuracyTrend": {
+      "type": "array",
+      "description": "Rolling per-session accuracy values; tail is most recent.",
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "projections": {
+      "type": "object",
+      "required": [
+        "coverageAtExamDate",
+        "rolling7DayAccuracy",
+        "readiness",
+        "riskLevel",
+        "recommendedDailyMinutes",
+        "recommendedQuestionsPerDay"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "coverageAtExamDate": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rolling7DayAccuracy": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "readiness": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1,
+          "description": "coverageAtExamDate * rolling7DayAccuracy."
+        },
+        "riskLevel": {
+          "enum": [
+            null,
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        },
+        "recommendedDailyMinutes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "recommendedQuestionsPerDay": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

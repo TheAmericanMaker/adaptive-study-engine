@@ -1,0 +1,305 @@
+# Example: CompTIA Security+ SY0-701 syllabus mapped to the PacktPublishing
+# study guide. Used as a working reference profile for the adaptive-study-engine
+# (see ../../README.md).
+#
+# To use this profile from the project root:
+#   cp examples/security-plus/objectives.yaml resources/objectives.yaml
+#   git submodule add https://github.com/PacktPublishing/CompTIA-Security-SY0-701-Full-Training-Guide external/source-repo
+#   python3 scripts/build-index.py
+#   python3 scripts/reset-tracking.py --exam-date YYYY-MM-DD
+#
+# Domain definitions follow CompTIA's published SY0-701 exam outline.
+# Section/subsection structure follows the Packt Study Guide
+# (external/source-repo/SYO-701+Study+Guide.pdf), which is the factual source
+# every quiz question must cite.
+version: SY0-701
+sourceRepo: PacktPublishing/CompTIA-Security-SY0-701-Full-Training-Guide
+
+# Files build-index.py / check-source-repo.py expect under external/source-repo/.
+sourceFiles:
+  studyGuide: "SYO-701+Study+Guide.pdf"
+  acronyms:   "CompTIA+Security++701+Acronyms+List.pdf"
+
+domains:
+  D1:
+    name: General Security Concepts
+    weight: 0.12
+    officialObjectives:
+      - { id: "1.1", title: "Compare and contrast various types of security controls" }
+      - { id: "1.2", title: "Summarize fundamental security concepts" }
+      - { id: "1.3", title: "Explain the importance of change management processes" }
+      - { id: "1.4", title: "Explain the importance of using appropriate cryptographic solutions" }
+  D2:
+    name: Threats, Vulnerabilities, and Mitigations
+    weight: 0.22
+    officialObjectives:
+      - { id: "2.1", title: "Compare and contrast common threat actors and motivations" }
+      - { id: "2.2", title: "Explain common threat vectors and attack surfaces" }
+      - { id: "2.3", title: "Explain various types of vulnerabilities" }
+      - { id: "2.4", title: "Given a scenario, analyze indicators of malicious activity" }
+      - { id: "2.5", title: "Explain the purpose of mitigation techniques used to secure the enterprise" }
+  D3:
+    name: Security Architecture
+    weight: 0.18
+    officialObjectives:
+      - { id: "3.1", title: "Compare and contrast security implications of different architecture models" }
+      - { id: "3.2", title: "Given a scenario, apply security principles to secure enterprise infrastructure" }
+      - { id: "3.3", title: "Compare and contrast concepts and strategies to protect data" }
+      - { id: "3.4", title: "Explain the importance of resilience and recovery in security architecture" }
+  D4:
+    name: Security Operations
+    weight: 0.28
+    officialObjectives:
+      - { id: "4.1", title: "Given a scenario, apply common security techniques to computing resources" }
+      - { id: "4.2", title: "Explain the security implications of proper hardware, software, and data asset management" }
+      - { id: "4.3", title: "Explain various activities associated with vulnerability management" }
+      - { id: "4.4", title: "Explain security alerting and monitoring concepts and tools" }
+      - { id: "4.5", title: "Given a scenario, modify enterprise capabilities to enhance security" }
+      - { id: "4.6", title: "Given a scenario, implement and maintain identity and access management" }
+      - { id: "4.7", title: "Explain the importance of automation and orchestration related to secure operations" }
+      - { id: "4.8", title: "Explain appropriate incident response activities" }
+      - { id: "4.9", title: "Given a scenario, use data sources to support an investigation" }
+  D5:
+    name: Security Program Management and Oversight
+    weight: 0.20
+    officialObjectives:
+      - { id: "5.1", title: "Summarize elements of effective security governance" }
+      - { id: "5.2", title: "Explain elements of the risk management process" }
+      - { id: "5.3", title: "Explain the processes associated with third-party risk assessment and management" }
+      - { id: "5.4", title: "Summarize elements of effective security compliance" }
+      - { id: "5.5", title: "Explain types and purposes of audits and assessments" }
+      - { id: "5.6", title: "Given a scenario, implement security awareness practices" }
+
+# Packt sections (the actual study material), each tagged to a CompTIA domain.
+# Topic IDs here are what tracking/performance.json uses.
+sections:
+  - id: S1
+    sourceSection: 1
+    title: Summarize Fundamental Security Concepts
+    domain: D1
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "1.1", title: "Introduction to Information Security" }
+      - { id: "1.2", title: "Cybersecurity Framework" }
+      - { id: "1.3", title: "Gap Analysis" }
+      - { id: "1.4", title: "Control Objectives" }
+      - { id: "1.5", title: "Security Control Categories" }
+      - { id: "1.6", title: "Security Control Functional Types" }
+      - { id: "1.7", title: "Security Roles & Responsibilities" }
+
+  - id: S2
+    sourceSection: 2
+    title: Explaining Threat Actors And Threat Vectors
+    domain: D2
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "2.1", title: "Vulnerability, Threat And Risk" }
+      - { id: "2.2", title: "Attributes Of Threat Actors" }
+      - { id: "2.3", title: "Threat Actors" }
+      - { id: "2.4", title: "Attack Surface & Attack Vectors" }
+      - { id: "2.5", title: "Vulnerable Software & Network Vectors" }
+      - { id: "2.6", title: "Lure-Based & Message-Based Vectors" }
+      - { id: "2.7", title: "Third Party Risks" }
+      - { id: "2.8", title: "Intro To Social Engineering" }
+
+  - id: S3
+    sourceSection: 3
+    title: Explain Cryptographic Solutions
+    domain: D1
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "3.1", title: "Introduction To Cryptography And Hashing" }
+      - { id: "3.2", title: "Encryption" }
+      - { id: "3.3", title: "Cryptographic Modes Of Operation & Cipher Suites" }
+      - { id: "3.4", title: "Cryptographic Use Cases" }
+      - { id: "3.5", title: "Longevity, Salting, Stretching & Other Cryptographic Technologies" }
+      - { id: "3.6", title: "Certificates, PKIs, RAs & CSRs" }
+      - { id: "3.7", title: "Digital Certificates" }
+      - { id: "3.8", title: "Key Management" }
+      - { id: "3.9", title: "Certificate Management" }
+
+  - id: S4
+    sourceSection: 4
+    title: Implement Identity and Access Management
+    domain: D4
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "4.1", title: "Identity Access Management" }
+      - { id: "4.2", title: "Authentication Factors, Design And Attributes" }
+      - { id: "4.3", title: "Biometric Authentication" }
+      - { id: "4.4", title: "Password Concepts" }
+      - { id: "4.5", title: "Authorization Solutions - Part 1" }
+      - { id: "4.6", title: "Authorization Solutions - Part 2" }
+      - { id: "4.7", title: "Account Attributes & Access Policies" }
+      - { id: "4.8", title: "Privileged Access Management" }
+      - { id: "4.9", title: "Local, Network & Remote Authentication" }
+      - { id: "4.10", title: "Kerberos Authentication & Authorization" }
+
+  - id: S5
+    sourceSection: 5
+    title: Secure Enterprise Network Architecture
+    domain: D3
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "5.1", title: "Secure Network Designs" }
+      - { id: "5.2", title: "Network Segmentation, Topology & DMZs" }
+      - { id: "5.3", title: "Device Placement & Attributes" }
+      - { id: "5.4", title: "Secure Switching And Routing" }
+      - { id: "5.5", title: "Routing & Switching Protocols" }
+      - { id: "5.6", title: "Using Secure Protocols" }
+      - { id: "5.7", title: "Attack Surface" }
+      - { id: "5.8", title: "Firewalls" }
+      - { id: "5.9", title: "Firewall Implementation" }
+      - { id: "5.10", title: "Remote Access Architecture" }
+
+  - id: S6
+    sourceSection: 6
+    title: Secure Cloud Network Architecture
+    domain: D3
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "6.1", title: "Cloud Deployment Models" }
+      - { id: "6.2", title: "Responsibility Matrix" }
+      - { id: "6.3", title: "Cloud Security Solutions" }
+      - { id: "6.4", title: "Infrastructure As Code Concepts" }
+      - { id: "6.5", title: "Zero Trust" }
+      - { id: "6.6", title: "Embedded Systems" }
+      - { id: "6.7", title: "Industrial Control Systems & Internet Of Things" }
+
+  - id: S7
+    sourceSection: 7
+    title: Explain Resiliency and Site Security Concepts
+    domain: D3
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "7.1", title: "Backup Strategies & Storage" }
+      - { id: "7.2", title: "Implementing Redundancy Strategies" }
+      - { id: "7.3", title: "Cyber Security Resilient Strategies" }
+      - { id: "7.4", title: "Physical Security Controls" }
+      - { id: "7.5", title: "Physical Host Security Controls" }
+
+  - id: S8
+    sourceSection: 8
+    title: Explain Vulnerability Management
+    domain: D2
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "8.1", title: "Vulnerability Discovery" }
+      - { id: "8.2", title: "Weak Host & Network Configurations" }
+      - { id: "8.3", title: "Evaluation Scope" }
+      - { id: "8.4", title: "Overflows, Resource Exhaustion, Memory Leaks & Race Conditions" }
+      - { id: "8.5", title: "Sideloading, Rooting & Jailbreaking" }
+      - { id: "8.6", title: "Threat Research Sources" }
+      - { id: "8.7", title: "Threat Intelligence Providers" }
+      - { id: "8.8", title: "Threat Data Feeds" }
+      - { id: "8.9", title: "Vulnerability Response & Remediation" }
+
+  - id: S9
+    sourceSection: 9
+    title: Evaluate Network Security Capabilities
+    domain: D4
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "9.1", title: "Benchmarks & Secure Configuration Guides" }
+      - { id: "9.2", title: "Hardening Concepts" }
+      - { id: "9.3", title: "Wi-Fi Authentication Methods" }
+      - { id: "9.4", title: "Network Access Control" }
+      - { id: "9.5", title: "Network Security Monitoring" }
+      - { id: "9.6", title: "Web Filtering" }
+
+  - id: S10
+    sourceSection: 10
+    title: Assess Endpoint Security Capabilities
+    domain: D4
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "10.1", title: "Endpoint Security" }
+      - { id: "10.2", title: "Segmentation" }
+      - { id: "10.3", title: "Mobile Device Management" }
+      - { id: "10.4", title: "Secure Mobile Device Connections" }
+
+  - id: S11
+    sourceSection: 11
+    title: Enhance Application Security Capabilities
+    domain: D4
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "11.1", title: "DNS Security, Directory Services & SNMP" }
+      - { id: "11.2", title: "Secure Application Operations Protocols" }
+      - { id: "11.3", title: "File Transfer, Email & Video Services" }
+      - { id: "11.4", title: "Email Security" }
+      - { id: "11.5", title: "Secure Coding Techniques" }
+
+  - id: S12
+    sourceSection: 12
+    title: Explain Incident Response and Monitoring Concepts
+    domain: D4
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "12.1", title: "Incident Response Process" }
+      - { id: "12.2", title: "Cyber Incident Response Team" }
+      - { id: "12.3", title: "Incident Response Plan" }
+      - { id: "12.4", title: "Incident Response Exercises, Recovery And Retention Policy" }
+      - { id: "12.5", title: "Incident Identification" }
+      - { id: "12.6", title: "Digital Forensics Documentation" }
+      - { id: "12.7", title: "Digital Forensics Evidence Acquisition" }
+      - { id: "12.8", title: "Data Sources" }
+
+  - id: S13
+    sourceSection: 13
+    title: Analyze Indicators of Malicious Activity
+    domain: D2
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "13.1", title: "Malware Classification" }
+      - { id: "13.2", title: "Computer Viruses" }
+      - { id: "13.3", title: "Computer Worms & Fileless Malware" }
+      - { id: "13.4", title: "Spyware, Keyloggers, Rootkits, Backdoors, Ransomware & Logic Bombs" }
+      - { id: "13.5", title: "Malware Indicators & Process Analysis" }
+      - { id: "13.6", title: "Password Attacks" }
+      - { id: "13.7", title: "Tactics, Techniques & Procedures" }
+      - { id: "13.8", title: "Privilege Escalation & Error Handling" }
+      - { id: "13.9", title: "Uniform Resource Locator Analysis & Percent Encoding" }
+      - { id: "13.10", title: "API & Replay Attacks, CSRF, Clickjacking & SSL Strip Attacks" }
+      - { id: "13.11", title: "Injection Attacks" }
+
+  - id: S14
+    sourceSection: 14
+    title: Summarize Security Governance Concepts
+    domain: D5
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "14.1", title: "Regulations, Standards & Legislation" }
+      - { id: "14.2", title: "ISO and Cloud Frameworks" }
+      - { id: "14.3", title: "Governance Structure" }
+      - { id: "14.4", title: "Governance Documents" }
+      - { id: "14.5", title: "Change Management" }
+      - { id: "14.6", title: "Configuration Management" }
+      - { id: "14.7", title: "Scripting, Automation & Orchestration" }
+
+  - id: S15
+    sourceSection: 15
+    title: Explain Risk Management
+    domain: D5
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "15.1", title: "Risk Management Process" }
+      - { id: "15.2", title: "Risk Controls" }
+      - { id: "15.3", title: "Business Impact Analysis" }
+      - { id: "15.4", title: "Third-Party Risk Management & Security Agreements" }
+      - { id: "15.5", title: "Audit & Assurance" }
+      - { id: "15.6", title: "PenTest Attack Life Cycle" }
+
+  - id: S16
+    sourceSection: 16
+    title: Summarize Data Protection and Compliance Concepts
+    domain: D5
+    sourceFile: "SYO-701+Study+Guide.pdf"
+    subsections:
+      - { id: "16.1", title: "Privacy & Sensitive Data Concepts" }
+      - { id: "16.2", title: "Data Sovereignty, Privacy Breaches & Data Sharing" }
+      - { id: "16.3", title: "Privacy And Data Controls" }
+      - { id: "16.4", title: "Privacy Principles" }
+      - { id: "16.5", title: "Compliance Monitoring" }
+      - { id: "16.6", title: "Education, Training & Awareness" }
+      - { id: "16.7", title: "Personnel Policies" }

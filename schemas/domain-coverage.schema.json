@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DomainCoverage",
+  "description": "Per-domain rollup: topic count, study coverage, accuracy, last-studied.",
+  "type": "object",
+  "required": [
+    "version",
+    "domains"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "domains": {
+      "type": "object",
+      "description": "Map keyed by domain ID (free-form string, e.g. D1, AWS-COMPUTE).",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[A-Za-z][A-Za-z0-9_-]*$": {
+          "type": "object",
+          "required": [
+            "name",
+            "weight",
+            "topicIds",
+            "topicsStudied",
+            "quizAccuracy",
+            "lastStudied"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "weight": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "topicIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "All topicIds in this domain (subset of performance.json)."
+            },
+            "topicsStudied": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Count of topics with questionsAnswered > 0."
+            },
+            "quizAccuracy": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
+            },
+            "lastStudied": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            }
+          }
+        }
+      }
+    }
+  }
+}

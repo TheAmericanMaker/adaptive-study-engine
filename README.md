@@ -1,0 +1,162 @@
+# Adaptive Study Engine
+
+An LLM-driven, diagnostic-first study framework for any topic with a defined
+syllabus and a factual source — certification exams, language vocabulary,
+coding interview prep, internal training programs, anything you can map to
+domains, sections, and topics.
+
+## What This Is
+
+This is not flashcards. It is a **diagnostic-first, adaptive study engine**
+that:
+
+- Baselines your knowledge across the domains in your syllabus
+- Tracks per-topic accuracy, streaks, and difficulty levels (L1/L2/L3)
+- Prioritizes weak areas and "I don't know" gaps over comfortable topics
+- Projects exam readiness based on actual learning velocity
+- Grounds every explanation in factual source material — no LLM hallucination
+
+The engine itself is topic-agnostic. To use it for a new topic, you fill in a
+`resources/objectives.yaml` describing the syllabus, optionally point at a
+factual source repo, and let the scripts and your LLM of choice do the rest.
+
+A complete working profile lives at [`examples/security-plus/`](examples/security-plus/)
+covering CompTIA Security+ SY0-701.
+
+## Quick Start
+
+```bash
+# 1. Clone (no submodules needed for the engine itself)
+git clone <your-fork-url> adaptive-study-engine
+cd adaptive-study-engine
+
+# 2. Install dependencies
+sudo apt-get install -y poppler-utils    # for pdftotext (only if your source is PDF)
+pip install -r requirements.txt
+
+# 3. Pick or build a syllabus profile
+#    Option A — use the bundled Security+ example:
+cp examples/security-plus/objectives.yaml resources/objectives.yaml
+git submodule add https://github.com/PacktPublishing/CompTIA-Security-SY0-701-Full-Training-Guide external/source-repo
+
+#    Option B — build your own:
+cp resources/objectives.yaml.example resources/objectives.yaml
+# ...edit resources/objectives.yaml, then add your factual source as a
+#    submodule under external/source-repo/ (or skip the submodule and supply
+#    extracted markdown manually under resources/source-content/).
+
+# 4. Build the content index and initialise tracking
+python3 scripts/check-source-repo.py        # optional, validates external/source-repo/
+python3 scripts/build-index.py
+python3 scripts/reset-tracking.py --exam-date 2026-05-25
+python3 scripts/generate-schedule.py
+
+# 5. Hand it to your LLM
+#    "Read INSTRUCTIONS.md and run today's adaptive quiz."
+```
+
+After each session, the LLM (or you) runs `scripts/log-session.py` to
+atomically update all tracking files. See `INSTRUCTIONS.md` for the full
+session loop.
+
+## How It Works
+
+| Feature | Description |
+|---------|-------------|
+| **Diagnostic Baseline** | First-session mixed quiz establishes real starting accuracy |
+| **Domain Coverage Matrix** | Tracks `topicsStudied / total` per domain weighted by syllabus blueprint |
+| **"Don't Know" Signal** | Separate from wrong answers; flags gaps before false confidence forms |
+| **Scenario-First Acronyms** | Terms embedded in context 3+ times before abbreviation alone |
+| **Adaptive Difficulty** | Per-topic L1 (definition) → L2 (scenario) → L3 (complex/tricky) |
+| **Velocity Projection** | Compares pace against exam date; outputs `readiness = coverage × 7-day accuracy` |
+| **Factual Source Integration** | Every quiz citation traces to `resources/indexes/source-section-map.json` |
+| **Schema-Validated State** | Every tracking file checked against JSON Schema; CI runs `validate-tracking.py` |
+
+## Readiness Computation
+
+`readiness` (in `tracking/velocity-tracker.json:projections`) is:
+
+```
+coverageAtExamDate  = projected % of topics studied by exam date,
+                      weighted by domain weights from objectives.yaml
+rolling7DayAccuracy = mean accuracy of last 7 logged sessions
+readiness           = coverageAtExamDate × rolling7DayAccuracy
+```
+
+`riskLevel` thresholds: HIGH if readiness < 0.7, MEDIUM if 0.7–0.9, LOW if ≥ 0.9.
+Recommended daily minutes scales with `(0.95 − readiness)`, capped at 30–120 min/day.
+
+## Project Structure
+
+```
+├── INSTRUCTIONS.md              # LLM entry point
+├── CLAUDE.md                    # AI-specific operational rules
+├── README.md                    # This file
+├── CONTRIBUTING.md              # Contribution + porting guide
+├── LICENSE
+├── requirements.txt             # Python deps
+├── docs/
+│   ├── SCHEMA.md                # Schema reference for all tracking files
+│   └── REFERENCE-REPOS.md       # Curated factual sources, by topic
+├── tracking/                    # Mutable state (managed by scripts)
+│   ├── velocity-tracker.json
+│   ├── performance.json
+│   ├── domain-coverage.json
+│   ├── acronyms.json
+│   └── question-history.jsonl
+├── study-plan/                  # Auto-generated (do not edit)
+│   └── adaptive-schedule.md
+├── resources/
+│   ├── objectives.yaml.example  # Template — copy to objectives.yaml and fill in
+│   ├── objectives.yaml          # YOUR syllabus (gitignored by default)
+│   ├── indexes/
+│   │   └── source-section-map.json   # Generated by build-index.py
+│   ├── source-content/          # Generated extracted markdown
+│   └── question-banks/          # Your JSONL question banks
+├── schemas/                     # JSON Schemas for all tracking files
+├── scripts/                     # Automation (see docs/SCHEMA.md)
+│   ├── build-index.py           # Extract source PDFs/DOCXs → markdown + index
+│   ├── check-source-repo.py     # Submodule preflight
+│   ├── reset-tracking.py        # Wipe to zero baseline (DESTRUCTIVE)
+│   ├── log-session.py           # Atomic session logger
+│   ├── validate-tracking.py     # Schema + cross-file integrity (used by CI)
+│   ├── generate-schedule.py     # Render adaptive-schedule.md
+│   └── run-practice-exam.py     # Timed weighted practice exam runner
+├── external/source-repo/        # Your factual-source submodule (per-topic)
+└── examples/
+    └── security-plus/           # Working CompTIA Security+ profile
+        ├── objectives.yaml
+        ├── source-content/
+        ├── indexes/source-section-map.json
+        ├── question-banks/sample-diagnostic.jsonl
+        └── SOURCE-ERRATA.md
+```
+
+## Porting to a New Topic
+
+The schema is intentionally topic-agnostic. To use it for AWS, a language
+exam, coding interviews, or anything else:
+
+1. **Pick a source repo.** Check [`docs/REFERENCE-REPOS.md`](docs/REFERENCE-REPOS.md)
+   for vetted options. If none fit, find your own (any structured factual
+   source works) and submit it back via PR.
+2. **Write `resources/objectives.yaml`.** Start from
+   `resources/objectives.yaml.example`. Domain IDs are free-form; weights
+   should sum to 1.0; topic IDs become tracking keys.
+3. **Add the source.** `git submodule add <url> external/source-repo`, then
+   `python3 scripts/build-index.py`. (You can also skip the submodule and
+   supply pre-extracted markdown under `resources/source-content/`.)
+4. **Reset tracking.** `python3 scripts/reset-tracking.py --exam-date YYYY-MM-DD`.
+5. **Adjust `INSTRUCTIONS.md`** with topic-specific rules (e.g. service
+   categories for AWS, vocabulary buckets for languages) — or leave the
+   generic version in place.
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full porting checklist.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+MIT — see [LICENSE](LICENSE).

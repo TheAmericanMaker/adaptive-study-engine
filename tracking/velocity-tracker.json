@@ -1,0 +1,14 @@
+{
+  "examDate": "1970-01-01",
+  "sessions": 0,
+  "sessionHistory": [],
+  "accuracyTrend": [],
+  "projections": {
+    "coverageAtExamDate": null,
+    "rolling7DayAccuracy": null,
+    "readiness": null,
+    "riskLevel": null,
+    "recommendedDailyMinutes": null,
+    "recommendedQuestionsPerDay": null
+  }
+}

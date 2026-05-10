@@ -1,0 +1,66 @@
+# Canonical syllabus + source-section index — TEMPLATE
+#
+# Single source of truth for:
+#   - tracking/domain-coverage.json (regenerated)
+#   - tracking/performance.json topic list (regenerated)
+#   - resources/indexes/source-section-map.json (regenerated)
+#
+# Copy this file to `resources/objectives.yaml` and fill in your topic. Then run:
+#   python3 scripts/reset-tracking.py --exam-date YYYY-MM-DD
+#   python3 scripts/build-index.py    # if you have a source repo at external/source-repo
+#
+# See `examples/security-plus/objectives.yaml` for a complete, working example.
+#
+# ─── Schema ────────────────────────────────────────────────────────────────
+# version       : free-form string identifying this syllabus version
+# sourceRepo    : optional human-readable label for the factual source
+# sourceFiles   : optional map of named source files inside external/source-repo
+#                 (consumed by scripts/build-index.py and scripts/check-source-repo.py)
+# domains       : map of domain ID -> { name, weight, officialObjectives[] }
+#                 Domain IDs are free-form strings (e.g. D1, AWS-COMPUTE, VOCAB-A1).
+#                 Weights should sum to 1.0.
+# sections      : ordered array of source sections, each with:
+#                   sourceSection: integer (section number in the source material)
+#                   title:         section title
+#                   domain:        which domain this section maps to
+#                   subsections[]: array of { id, title } where id is a topic ID
+#                                  referenced by tracking/performance.json
+# ───────────────────────────────────────────────────────────────────────────
+
+version: "0.1.0"
+sourceRepo: "<github-org>/<source-repo-name>"
+
+# Optional: declare the files build-index.py / check-source-repo.py expect under
+# external/source-repo/. Remove this block if you don't ingest a source repo.
+sourceFiles:
+  studyGuide: "<your-study-guide.pdf>"
+  acronyms:   "<your-acronyms-list.pdf>"     # optional
+
+domains:
+  D1:
+    name: "Domain 1 — replace me"
+    weight: 0.50
+    officialObjectives:
+      - { id: "1.1", title: "First objective in this domain" }
+      - { id: "1.2", title: "Second objective in this domain" }
+  D2:
+    name: "Domain 2 — replace me"
+    weight: 0.50
+    officialObjectives:
+      - { id: "2.1", title: "First objective in this domain" }
+
+# Sections describe how the source material is broken down. Each section maps
+# to one domain, and lists the topics (subsections) it covers. Topic IDs here
+# are what tracking/performance.json keys against.
+sections:
+  - sourceSection: 1
+    title: "First section in the study guide"
+    domain: "D1"
+    subsections:
+      - { id: "1.1", title: "First objective in this domain" }
+      - { id: "1.2", title: "Second objective in this domain" }
+  - sourceSection: 2
+    title: "Second section in the study guide"
+    domain: "D2"
+    subsections:
+      - { id: "2.1", title: "First objective in this domain" }

@@ -1,0 +1,37 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node
+node_modules/
+
+# Data backups (keep only committed state)
+*.bak
+
+# Source material lives at external/source-repo/ — typically added per
+# project as a git submodule. Run `git submodule update --init` to populate,
+# then `python3 scripts/build-index.py` to (re)extract content.
+external/source-repo/
+
+# Project-local syllabus (copied from resources/objectives.yaml.example or
+# from one of the examples/ profiles). Tracked or untracked depending on
+# whether you fork this engine or use it standalone — uncomment to ignore.
+# resources/objectives.yaml
+
+# Generated source-content + index are reproducible from objectives.yaml + the
+# source-repo submodule, but committing them is fine for reproducibility.
+
+# Local backup directories created during atomic tracking updates
+tracking-backup-*/

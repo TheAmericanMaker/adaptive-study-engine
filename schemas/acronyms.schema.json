@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Acronyms",
+  "description": "Acronym glossary with priority/confidence tracking.",
+  "type": "object",
+  "required": ["acronyms"],
+  "additionalProperties": false,
+  "properties": {
+    "acronyms": {
+      "type": "object",
+      "description": "Map keyed by acronym string (e.g. 'PKI').",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["expansion", "timesSeen", "lastSeen", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "expansion": {"type": "string"},
+          "definition": {"type": "string"},
+          "timesSeen": {"type": "integer", "minimum": 0},
+          "lastSeen": {"type": ["string", "null"], "format": "date"},
+          "confidence": {"enum": ["unknown", "low", "medium", "high"]},
+          "sourceFile": {"type": "string"},
+          "sourceSection": {"type": "string"}
+        }
+      }
+    }
+  }
+}

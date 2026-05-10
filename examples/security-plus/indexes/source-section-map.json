@@ -1,0 +1,674 @@
+{
+  "domains": {
+    "D1": {
+      "name": "General Security Concepts",
+      "sections": [
+        "S1",
+        "S3"
+      ],
+      "weight": 0.12
+    },
+    "D2": {
+      "name": "Threats, Vulnerabilities, and Mitigations",
+      "sections": [
+        "S13",
+        "S2",
+        "S8"
+      ],
+      "weight": 0.22
+    },
+    "D3": {
+      "name": "Security Architecture",
+      "sections": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "weight": 0.18
+    },
+    "D4": {
+      "name": "Security Operations",
+      "sections": [
+        "S10",
+        "S11",
+        "S12",
+        "S4",
+        "S9"
+      ],
+      "weight": 0.28
+    },
+    "D5": {
+      "name": "Security Program Management and Oversight",
+      "sections": [
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "weight": 0.2
+    }
+  },
+  "sections": {
+    "S1": {
+      "contentFile": "resources/source-content/section-01-summarize-fundamental-security-concepts.md",
+      "domain": "D1",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 1,
+      "subsections": [
+        {
+          "id": "1.1",
+          "title": "Introduction to Information Security"
+        },
+        {
+          "id": "1.2",
+          "title": "Cybersecurity Framework"
+        },
+        {
+          "id": "1.3",
+          "title": "Gap Analysis"
+        },
+        {
+          "id": "1.4",
+          "title": "Control Objectives"
+        },
+        {
+          "id": "1.5",
+          "title": "Security Control Categories"
+        },
+        {
+          "id": "1.6",
+          "title": "Security Control Functional Types"
+        },
+        {
+          "id": "1.7",
+          "title": "Security Roles & Responsibilities"
+        }
+      ],
+      "title": "Summarize Fundamental Security Concepts"
+    },
+    "S10": {
+      "contentFile": "resources/source-content/section-10-assess-endpoint-security-capabilities.md",
+      "domain": "D4",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 10,
+      "subsections": [
+        {
+          "id": "10.1",
+          "title": "Endpoint Security"
+        },
+        {
+          "id": "10.2",
+          "title": "Segmentation"
+        },
+        {
+          "id": "10.3",
+          "title": "Mobile Device Management"
+        },
+        {
+          "id": "10.4",
+          "title": "Secure Mobile Device Connections"
+        }
+      ],
+      "title": "Assess Endpoint Security Capabilities"
+    },
+    "S11": {
+      "contentFile": "resources/source-content/section-11-enhance-application-security-capabilities.md",
+      "domain": "D4",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 11,
+      "subsections": [
+        {
+          "id": "11.1",
+          "title": "DNS Security, Directory Services & SNMP"
+        },
+        {
+          "id": "11.2",
+          "title": "Secure Application Operations Protocols"
+        },
+        {
+          "id": "11.3",
+          "title": "File Transfer, Email & Video Services"
+        },
+        {
+          "id": "11.4",
+          "title": "Email Security"
+        },
+        {
+          "id": "11.5",
+          "title": "Secure Coding Techniques"
+        }
+      ],
+      "title": "Enhance Application Security Capabilities"
+    },
+    "S12": {
+      "contentFile": "resources/source-content/section-12-explain-incident-response-and-monitoring-concepts.md",
+      "domain": "D4",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 12,
+      "subsections": [
+        {
+          "id": "12.1",
+          "title": "Incident Response Process"
+        },
+        {
+          "id": "12.2",
+          "title": "Cyber Incident Response Team"
+        },
+        {
+          "id": "12.3",
+          "title": "Incident Response Plan"
+        },
+        {
+          "id": "12.4",
+          "title": "Incident Response Exercises, Recovery And Retention Policy"
+        },
+        {
+          "id": "12.5",
+          "title": "Incident Identification"
+        },
+        {
+          "id": "12.6",
+          "title": "Digital Forensics Documentation"
+        },
+        {
+          "id": "12.7",
+          "title": "Digital Forensics Evidence Acquisition"
+        },
+        {
+          "id": "12.8",
+          "title": "Data Sources"
+        }
+      ],
+      "title": "Explain Incident Response and Monitoring Concepts"
+    },
+    "S13": {
+      "contentFile": "resources/source-content/section-13-analyze-indicators-of-malicious-activity.md",
+      "domain": "D2",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 13,
+      "subsections": [
+        {
+          "id": "13.1",
+          "title": "Malware Classification"
+        },
+        {
+          "id": "13.2",
+          "title": "Computer Viruses"
+        },
+        {
+          "id": "13.3",
+          "title": "Computer Worms & Fileless Malware"
+        },
+        {
+          "id": "13.4",
+          "title": "Spyware, Keyloggers, Rootkits, Backdoors, Ransomware & Logic Bombs"
+        },
+        {
+          "id": "13.5",
+          "title": "Malware Indicators & Process Analysis"
+        },
+        {
+          "id": "13.6",
+          "title": "Password Attacks"
+        },
+        {
+          "id": "13.7",
+          "title": "Tactics, Techniques & Procedures"
+        },
+        {
+          "id": "13.8",
+          "title": "Privilege Escalation & Error Handling"
+        },
+        {
+          "id": "13.9",
+          "title": "Uniform Resource Locator Analysis & Percent Encoding"
+        },
+        {
+          "id": "13.10",
+          "title": "API & Replay Attacks, CSRF, Clickjacking & SSL Strip Attacks"
+        },
+        {
+          "id": "13.11",
+          "title": "Injection Attacks"
+        }
+      ],
+      "title": "Analyze Indicators of Malicious Activity"
+    },
+    "S14": {
+      "contentFile": "resources/source-content/section-14-summarize-security-governance-concepts.md",
+      "domain": "D5",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 14,
+      "subsections": [
+        {
+          "id": "14.1",
+          "title": "Regulations, Standards & Legislation"
+        },
+        {
+          "id": "14.2",
+          "title": "ISO and Cloud Frameworks"
+        },
+        {
+          "id": "14.3",
+          "title": "Governance Structure"
+        },
+        {
+          "id": "14.4",
+          "title": "Governance Documents"
+        },
+        {
+          "id": "14.5",
+          "title": "Change Management"
+        },
+        {
+          "id": "14.6",
+          "title": "Configuration Management"
+        },
+        {
+          "id": "14.7",
+          "title": "Scripting, Automation & Orchestration"
+        }
+      ],
+      "title": "Summarize Security Governance Concepts"
+    },
+    "S15": {
+      "contentFile": "resources/source-content/section-15-explain-risk-management.md",
+      "domain": "D5",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 15,
+      "subsections": [
+        {
+          "id": "15.1",
+          "title": "Risk Management Process"
+        },
+        {
+          "id": "15.2",
+          "title": "Risk Controls"
+        },
+        {
+          "id": "15.3",
+          "title": "Business Impact Analysis"
+        },
+        {
+          "id": "15.4",
+          "title": "Third-Party Risk Management & Security Agreements"
+        },
+        {
+          "id": "15.5",
+          "title": "Audit & Assurance"
+        },
+        {
+          "id": "15.6",
+          "title": "PenTest Attack Life Cycle"
+        }
+      ],
+      "title": "Explain Risk Management"
+    },
+    "S16": {
+      "contentFile": "resources/source-content/section-16-summarize-data-protection-and-compliance-concepts.md",
+      "domain": "D5",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 16,
+      "subsections": [
+        {
+          "id": "16.1",
+          "title": "Privacy & Sensitive Data Concepts"
+        },
+        {
+          "id": "16.2",
+          "title": "Data Sovereignty, Privacy Breaches & Data Sharing"
+        },
+        {
+          "id": "16.3",
+          "title": "Privacy And Data Controls"
+        },
+        {
+          "id": "16.4",
+          "title": "Privacy Principles"
+        },
+        {
+          "id": "16.5",
+          "title": "Compliance Monitoring"
+        },
+        {
+          "id": "16.6",
+          "title": "Education, Training & Awareness"
+        },
+        {
+          "id": "16.7",
+          "title": "Personnel Policies"
+        }
+      ],
+      "title": "Summarize Data Protection and Compliance Concepts"
+    },
+    "S2": {
+      "contentFile": "resources/source-content/section-02-explaining-threat-actors-and-threat-vectors.md",
+      "domain": "D2",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 2,
+      "subsections": [
+        {
+          "id": "2.1",
+          "title": "Vulnerability, Threat And Risk"
+        },
+        {
+          "id": "2.2",
+          "title": "Attributes Of Threat Actors"
+        },
+        {
+          "id": "2.3",
+          "title": "Threat Actors"
+        },
+        {
+          "id": "2.4",
+          "title": "Attack Surface & Attack Vectors"
+        },
+        {
+          "id": "2.5",
+          "title": "Vulnerable Software & Network Vectors"
+        },
+        {
+          "id": "2.6",
+          "title": "Lure-Based & Message-Based Vectors"
+        },
+        {
+          "id": "2.7",
+          "title": "Third Party Risks"
+        },
+        {
+          "id": "2.8",
+          "title": "Intro To Social Engineering"
+        }
+      ],
+      "title": "Explaining Threat Actors And Threat Vectors"
+    },
+    "S3": {
+      "contentFile": "resources/source-content/section-03-explain-cryptographic-solutions.md",
+      "domain": "D1",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 3,
+      "subsections": [
+        {
+          "id": "3.1",
+          "title": "Introduction To Cryptography And Hashing"
+        },
+        {
+          "id": "3.2",
+          "title": "Encryption"
+        },
+        {
+          "id": "3.3",
+          "title": "Cryptographic Modes Of Operation & Cipher Suites"
+        },
+        {
+          "id": "3.4",
+          "title": "Cryptographic Use Cases"
+        },
+        {
+          "id": "3.5",
+          "title": "Longevity, Salting, Stretching & Other Cryptographic Technologies"
+        },
+        {
+          "id": "3.6",
+          "title": "Certificates, PKIs, RAs & CSRs"
+        },
+        {
+          "id": "3.7",
+          "title": "Digital Certificates"
+        },
+        {
+          "id": "3.8",
+          "title": "Key Management"
+        },
+        {
+          "id": "3.9",
+          "title": "Certificate Management"
+        }
+      ],
+      "title": "Explain Cryptographic Solutions"
+    },
+    "S4": {
+      "contentFile": "resources/source-content/section-04-implement-identity-and-access-management.md",
+      "domain": "D4",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 4,
+      "subsections": [
+        {
+          "id": "4.1",
+          "title": "Identity Access Management"
+        },
+        {
+          "id": "4.2",
+          "title": "Authentication Factors, Design And Attributes"
+        },
+        {
+          "id": "4.3",
+          "title": "Biometric Authentication"
+        },
+        {
+          "id": "4.4",
+          "title": "Password Concepts"
+        },
+        {
+          "id": "4.5",
+          "title": "Authorization Solutions - Part 1"
+        },
+        {
+          "id": "4.6",
+          "title": "Authorization Solutions - Part 2"
+        },
+        {
+          "id": "4.7",
+          "title": "Account Attributes & Access Policies"
+        },
+        {
+          "id": "4.8",
+          "title": "Privileged Access Management"
+        },
+        {
+          "id": "4.9",
+          "title": "Local, Network & Remote Authentication"
+        },
+        {
+          "id": "4.10",
+          "title": "Kerberos Authentication & Authorization"
+        }
+      ],
+      "title": "Implement Identity and Access Management"
+    },
+    "S5": {
+      "contentFile": "resources/source-content/section-05-secure-enterprise-network-architecture.md",
+      "domain": "D3",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 5,
+      "subsections": [
+        {
+          "id": "5.1",
+          "title": "Secure Network Designs"
+        },
+        {
+          "id": "5.2",
+          "title": "Network Segmentation, Topology & DMZs"
+        },
+        {
+          "id": "5.3",
+          "title": "Device Placement & Attributes"
+        },
+        {
+          "id": "5.4",
+          "title": "Secure Switching And Routing"
+        },
+        {
+          "id": "5.5",
+          "title": "Routing & Switching Protocols"
+        },
+        {
+          "id": "5.6",
+          "title": "Using Secure Protocols"
+        },
+        {
+          "id": "5.7",
+          "title": "Attack Surface"
+        },
+        {
+          "id": "5.8",
+          "title": "Firewalls"
+        },
+        {
+          "id": "5.9",
+          "title": "Firewall Implementation"
+        },
+        {
+          "id": "5.10",
+          "title": "Remote Access Architecture"
+        }
+      ],
+      "title": "Secure Enterprise Network Architecture"
+    },
+    "S6": {
+      "contentFile": "resources/source-content/section-06-secure-cloud-network-architecture.md",
+      "domain": "D3",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 6,
+      "subsections": [
+        {
+          "id": "6.1",
+          "title": "Cloud Deployment Models"
+        },
+        {
+          "id": "6.2",
+          "title": "Responsibility Matrix"
+        },
+        {
+          "id": "6.3",
+          "title": "Cloud Security Solutions"
+        },
+        {
+          "id": "6.4",
+          "title": "Infrastructure As Code Concepts"
+        },
+        {
+          "id": "6.5",
+          "title": "Zero Trust"
+        },
+        {
+          "id": "6.6",
+          "title": "Embedded Systems"
+        },
+        {
+          "id": "6.7",
+          "title": "Industrial Control Systems & Internet Of Things"
+        }
+      ],
+      "title": "Secure Cloud Network Architecture"
+    },
+    "S7": {
+      "contentFile": "resources/source-content/section-07-explain-resiliency-and-site-security-concepts.md",
+      "domain": "D3",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 7,
+      "subsections": [
+        {
+          "id": "7.1",
+          "title": "Backup Strategies & Storage"
+        },
+        {
+          "id": "7.2",
+          "title": "Implementing Redundancy Strategies"
+        },
+        {
+          "id": "7.3",
+          "title": "Cyber Security Resilient Strategies"
+        },
+        {
+          "id": "7.4",
+          "title": "Physical Security Controls"
+        },
+        {
+          "id": "7.5",
+          "title": "Physical Host Security Controls"
+        }
+      ],
+      "title": "Explain Resiliency and Site Security Concepts"
+    },
+    "S8": {
+      "contentFile": "resources/source-content/section-08-explain-vulnerability-management.md",
+      "domain": "D2",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 8,
+      "subsections": [
+        {
+          "id": "8.1",
+          "title": "Vulnerability Discovery"
+        },
+        {
+          "id": "8.2",
+          "title": "Weak Host & Network Configurations"
+        },
+        {
+          "id": "8.3",
+          "title": "Evaluation Scope"
+        },
+        {
+          "id": "8.4",
+          "title": "Overflows, Resource Exhaustion, Memory Leaks & Race Conditions"
+        },
+        {
+          "id": "8.5",
+          "title": "Sideloading, Rooting & Jailbreaking"
+        },
+        {
+          "id": "8.6",
+          "title": "Threat Research Sources"
+        },
+        {
+          "id": "8.7",
+          "title": "Threat Intelligence Providers"
+        },
+        {
+          "id": "8.8",
+          "title": "Threat Data Feeds"
+        },
+        {
+          "id": "8.9",
+          "title": "Vulnerability Response & Remediation"
+        }
+      ],
+      "title": "Explain Vulnerability Management"
+    },
+    "S9": {
+      "contentFile": "resources/source-content/section-09-evaluate-network-security-capabilities.md",
+      "domain": "D4",
+      "originalFile": "external/source-repo/SYO-701+Study+Guide.pdf",
+      "sourceSection": 9,
+      "subsections": [
+        {
+          "id": "9.1",
+          "title": "Benchmarks & Secure Configuration Guides"
+        },
+        {
+          "id": "9.2",
+          "title": "Hardening Concepts"
+        },
+        {
+          "id": "9.3",
+          "title": "Wi-Fi Authentication Methods"
+        },
+        {
+          "id": "9.4",
+          "title": "Network Access Control"
+        },
+        {
+          "id": "9.5",
+          "title": "Network Security Monitoring"
+        },
+        {
+          "id": "9.6",
+          "title": "Web Filtering"
+        }
+      ],
+      "title": "Evaluate Network Security Capabilities"
+    }
+  },
+  "sourceRepo": "PacktPublishing/CompTIA-Security-SY0-701-Full-Training-Guide",
+  "version": "SY0-701"
+}

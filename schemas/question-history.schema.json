@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QuestionHistoryEntry",
+  "description": "One line of tracking/question-history.jsonl. Append-only.",
+  "type": "object",
+  "required": ["date", "topicId", "question", "correct", "level"],
+  "additionalProperties": false,
+  "properties": {
+    "date": {"type": "string", "format": "date"},
+    "topicId": {"type": "string"},
+    "question": {"type": "string"},
+    "userAnswer": {"type": ["string", "null"]},
+    "correctAnswer": {"type": "string"},
+    "correct": {"type": "boolean"},
+    "dontKnow": {"type": "boolean"},
+    "level": {"type": "integer", "minimum": 1, "maximum": 3},
+    "sourceSection": {
+      "type": "string",
+      "description": "e.g. 'S3' (matches source-section-map.json)."
+    },
+    "sourceFile": {"type": "string"}
+  }
+}
